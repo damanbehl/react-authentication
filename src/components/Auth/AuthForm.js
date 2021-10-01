@@ -3,7 +3,7 @@ import AuthContext from "../../store/auth-context";
 
 import classes from "./AuthForm.module.css";
 
-const API_KEY = "DUMMY";
+export const API_KEY = "DUMMY";
 
 const AuthForm = () => {
   const authCtx = useContext(AuthContext);
