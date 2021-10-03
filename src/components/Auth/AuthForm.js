@@ -1,11 +1,13 @@
 import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
+import { useHistory } from "react-router-dom";
 
 import classes from "./AuthForm.module.css";
 
 export const API_KEY = "DUMMY";
 
 const AuthForm = () => {
+  const history = useHistory();
   const authCtx = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(true);
   const emailInputRef = useRef();
@@ -57,8 +59,8 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        console.log(data);
         authCtx.login(data.idToken);
+        history.replace("/");
       })
       .catch((err) => {
         //can use modal here and parse error to custom error message
